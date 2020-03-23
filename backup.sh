@@ -26,6 +26,7 @@ gitupdate() {
 
 main() {
     echo "Starting backup ..."
+    echo ${pwd}
     rsync -q -av ~/.config/i3* ~/.config/polybar ~/.config/plasma* config/
     rsync -q -av ~/.vimrc ~/.tmux.conf.local ~/.zshrc dotfiles
 
