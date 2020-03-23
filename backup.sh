@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
+# cd into script dir
 BASEDIR=$(dirname "$0")
 cd $BASEDIR
+
 # redirect stdout/stderr to a file
-exec &>> $BASEDIR/log.txt
+exec &>> log.txt
 
 adddate() {
     while IFS= read -r line; do
