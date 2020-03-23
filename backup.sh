@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 BASEDIR=$(dirname "$0")
+cd $BASEDIR
 # redirect stdout/stderr to a file
 exec &>> $BASEDIR/log.txt
 
