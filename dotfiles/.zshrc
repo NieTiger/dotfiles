@@ -135,3 +135,5 @@ autoload -Uz tetriscurses
 
 # No autocd
 unsetopt autocd
+
+alias activate_pio="source ~/.platformio/penv/bin/activate"
