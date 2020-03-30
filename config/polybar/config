@@ -66,6 +66,8 @@ module-margin = 1
 padding-right = 1
 line-size = 2
 
+height=2%
+
 font-0 = DejaVu Sans Mono:style=Medium,Regular:size=12;
 font-1 = unifont:fontformat=truetype:size=12:antialias=false;
 font-2 = siji:pixelsize=20;
