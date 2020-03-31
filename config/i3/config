@@ -148,7 +148,7 @@ mode "move" {
 }
 
 # Window boarders
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 1
 
 # >>> Plasma Integration <<<
 #
