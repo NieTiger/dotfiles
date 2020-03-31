@@ -50,7 +50,7 @@ height=2.5%
 
 modules-left = i3
 modules-center = date
-modules-right = pulseaudio memory cpu temperature battery
+modules-right = backlight pulseaudio memory cpu temperature battery
 
 font-0 = DejaVu Sans Mono:style=Regular:pixelsize=13;
 font-1 = DejaVu Sans:style=Regular
@@ -159,27 +159,32 @@ icon-next = 
 label-song-maxlen = 25
 label-song-ellipsis = true
 
-[module/xbacklight]
-type = internal/xbacklight
-
-format = <label> <bar>
-label = BL
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
-
-[module/backlight-acpi]
-inherit = module/xbacklight
+[module/backlight]
 type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
 card = intel_backlight
+
+format = LIGHT <label>
+
+; Enable changing the backlight with the scroll wheel (unreleased)
+; NOTE: This may require additional configuration on some systems. Polybar will
+; write to `/sys/class/backlight/${self.card}/brightness` which requires polybar
+; to have write access to that file.
+; DO NOT RUN POLYBAR AS ROOT.
+; The recommended way is to add the user to the
+; `video` group and give that group write-privileges for the `brightness` file.
+; See the ArchWiki for more information:
+; https://wiki.archlinux.org/index.php/Backlight#ACPI
+; Default: false
+enable-scroll = true
+
+[module/light]
+type = custom/script
+exec = light -G
+scroll-up = light -A 5
+scroll-down = light -U 5
 
 [module/cpu]
 type = internal/cpu
