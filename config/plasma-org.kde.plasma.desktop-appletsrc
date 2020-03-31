@@ -25,7 +25,6 @@ PreloadWeight=2
 [Containments][1][General]
 ToolBoxButtonState=left
 ToolBoxButtonY=28
-positions=1,16,desktop:/arduino-arduinoide.desktop,0,0
 sortMode=-1
 
 [Containments][1][Wallpaper][org.kde.image][General]
@@ -45,4 +44,4 @@ PreloadWeight=42
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/arduino-arduinoide.desktop,0
+screenMapping=

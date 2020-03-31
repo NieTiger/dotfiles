@@ -1,0 +1,12 @@
+configuration {
+    modi: [window,run,ssh,drun];
+    display-combi: "Apps ";
+    location: 0;
+	fake-transparency: false;
+	hide-scrollbar: true;
+	bw: 0;
+    fullscreen: false;
+    show-icons: true;
+	sidebar-mode: false;
+}
+@import "/usr/share/rofi/themes/Monokai.rasi"
