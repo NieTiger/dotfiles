@@ -150,33 +150,6 @@ mode "move" {
 # Window boarders
 for_window [class="^.*"] border pixel 1
 
-# >>> Plasma Integration <<<
-#
-# Try to kill the wallpaper set by Plasma (it takes up the entire workspace
-# and hides everythiing)
-exec --no-startup-id wmctrl -c Plasma
-for_window [title="Desktop — Plasma"] kill; floating enable; border none
-
-# Avoid tiling popups, dropdown windows from plasma
-for_window [class="plasmashell"] floating enable
-for_window [class="Plasma"] floating enable
-for_window [class="krunner"] floating enable
-for_window [class="Kmix"] floating enable
-for_window [class="Klipper"] floating enable
-for_window [class="Plasmoidviewer"] floating enable
-
-# >>> Window Rules <<<
-
-# >>> Avoid tiling for non-Plasma stuff <<<
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="bubble"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [window_role="Preferences"] floating enable
-for_window [window_role="About"] floating enable
-for_window [window_type="dialog"] floating enable
-for_window [window_type="menu"] floating enable
-
-
 # >>> Polybar <<<
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
@@ -191,7 +164,3 @@ bindsym XF86MonBrightnessUp exec light -A 10
 
 # Restore nitrogen wallpaper
 exec nitrogen --restore &
-
-exec xinput --set-prop 10 277 1
-exec xinput --set-prop 10 285 1
-exec xinput --set-prop 10 287 0

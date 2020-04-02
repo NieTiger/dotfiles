@@ -122,3 +122,48 @@ autoload -Uz tetriscurses
 unsetopt autocd
 
 alias activate_pio="source ~/.platformio/penv/bin/activate"
+
+alias python3=python3.8
+
+
+# Booting into TTY
+if [ "$TERM" = "linux" ]; then
+    echo -en "\e]P0222222" #black
+    echo -en "\e]P8222222" #darkgrey
+    echo -en "\e]P1803232" #darkred
+    echo -en "\e]P9982b2b" #red
+    echo -en "\e]P25b762f" #darkgreen
+    echo -en "\e]PA89b83f" #green
+    echo -en "\e]P3aa9943" #brown
+    echo -en "\e]PBefef60" #yellow
+    echo -en "\e]P4324c80" #darkblue
+    echo -en "\e]PC2b4f98" #blue
+    echo -en "\e]P5706c9a" #darkmagenta
+    echo -en "\e]PD826ab1" #magenta
+    echo -en "\e]P692b19e" #darkcyan
+    echo -en "\e]PEa1cdcd" #cyan
+    echo -en "\e]P7ffffff" #lightgrey
+    echo -en "\e]PFdedede" #white
+    clear #for background artifacting
+fi
+
+## Booting into TTY
+#if [ "$TERM" = "linux" ]; then
+    #echo -en "\e]P0000000" #Black
+    #echo -en "\e]P8575757" #Dk. Gray
+    #echo -en "\e]P1ad2323" #Red
+    #echo -en "\e]P92a4bd7" #Blue
+    #echo -en "\e]P21d6914" #Green
+    #echo -en "\e]PA814a19" #Brown
+    #echo -en "\e]P38126c0" #Purple
+    #echo -en "\e]PBa0a0a0" #Lt. Gray
+    #echo -en "\e]P481c57a" #Lt. Green
+    #echo -en "\e]PC9dafff" #Lt. Blue
+    #echo -en "\e]P529d0d0" #Cyan
+    #echo -en "\e]PDff9233" #Orange
+    #echo -en "\e]P6ffee33" #Yellow
+    #echo -en "\e]PEe9debb" #Tan
+    #echo -en "\e]P7ffcdf3" #Pink
+    #echo -en "\e]PFffffff" #White
+    #clear #for background artifacting
+#fi
