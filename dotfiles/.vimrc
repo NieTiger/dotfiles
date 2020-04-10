@@ -74,11 +74,11 @@ hi Pmenu guibg=Black
 " ===                               ALE config                             === "
 " ============================================================================ "
 let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
-let g:ale_linters_explicit = 1
-let g:ale_linters = {
-\   'python': ['black']
-\}
+"let g:ale_completion_enabled = 1
+"let g:ale_linters_explicit = 1
+"let g:ale_linters = {
+"\   'python': ['black']
+"\}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier', 'eslint'],
@@ -86,8 +86,8 @@ let g:ale_fixers = {
 \   'python': ['black']
 \}
 
-" disabling highlighting
-let g:ale_set_highlights = 0
+"" disabling highlighting
+"let g:ale_set_highlights = 0
 
 " ============================================================================ "
 " ===                               VimPlug                                === "
@@ -125,9 +125,6 @@ Plug 'tpope/vim-fugitive'
 " Status line
 Plug 'itchyny/lightline.vim'
 
-" Syntax highlighting
-Plug 'dense-analysis/ale'
-
 " Autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -136,6 +133,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim',
 
 " Syntax highlighting
+Plug 'dense-analysis/ale'
 Plug 'leafgarland/typescript-vim',
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'peitalin/vim-jsx-typescript'
