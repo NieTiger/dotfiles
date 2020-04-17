@@ -416,9 +416,8 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-:hi ErrorMsg ctermfg=15 ctermbg=1 guifg=black guibg=Red
-
 
 " ============================================================================ "
 " ===                                 MISC.                                === "
 " ============================================================================ "
+:hi ErrorMsg ctermfg=15 ctermbg=1 guifg=black guibg=Red
