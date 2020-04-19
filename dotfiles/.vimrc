@@ -3,7 +3,6 @@
 " ============================================================================ "
 scriptencoding utf-8
 set encoding=utf-8
-let g:mapleader = "\<Space>"
 
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
@@ -42,6 +41,9 @@ cmap w!! w !sudo tee %
 " cursor always at the center of the screen
 set scrolloff=100
 
+" remap leader
+let g:mapleader = "\<Space>"
+
 
 " ============================================================================ "
 " ===                                UI                                    === "
@@ -60,12 +62,11 @@ set splitbelow      " Set preview window to appear at bottom
 
 set winbl=10        " Set floating window to be slightly transparent
 
-" Search {{{
+" Search
 set hlsearch        " Highlight matching search patterns
 set incsearch       " Enable incremental search
 set ignorecase      " Ignore case when searching
 set smartcase       " Include only uppercase words with uppercase search term
-" }}}
 
 " Set floating window background to white
 hi Pmenu guibg=Black
@@ -103,24 +104,22 @@ Plug 'jiangmiao/auto-pairs'
 
 " Git plugin
 Plug 'tpope/vim-fugitive'
-" {{{
-  " Fix broken syntax highlight in gitcommit files
-  " (https://github.com/tpope/vim-git/issues/12)
-  let g:fugitive_git_executable = 'LANG=en_US.UTF-8 git'
+" Fix broken syntax highlight in gitcommit files
+" (https://github.com/tpope/vim-git/issues/12)
+let g:fugitive_git_executable = 'LANG=en_US.UTF-8 git'
 
-  nnoremap <silent> <leader>gs :Gstatus<CR>
-  nnoremap <silent> <leader>gd :Gdiff<CR>
-  nnoremap <silent> <leader>gc :Gcommit<CR>
-  nnoremap <silent> <leader>gb :Gblame<CR>
-  nnoremap <silent> <leader>ge :Gedit<CR>
-  nnoremap <silent> <leader>gE :Gedit<space>
-  nnoremap <silent> <leader>gr :Gread<CR>
-  nnoremap <silent> <leader>gR :Gread<space>
-  nnoremap <silent> <leader>gw :Gwrite<CR>
-  nnoremap <silent> <leader>gW :Gwrite!<CR>
-  nnoremap <silent> <leader>gq :Gwq<CR>
-  nnoremap <silent> <leader>gQ :Gwq!<CR>
-" }}}
+nnoremap <silent> <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>gd :Gdiff<CR>
+nnoremap <silent> <leader>gc :Gcommit<CR>
+nnoremap <silent> <leader>gb :Gblame<CR>
+nnoremap <silent> <leader>ge :Gedit<CR>
+nnoremap <silent> <leader>gE :Gedit<space>
+nnoremap <silent> <leader>gr :Gread<CR>
+nnoremap <silent> <leader>gR :Gread<space>
+nnoremap <silent> <leader>gw :Gwrite<CR>
+nnoremap <silent> <leader>gW :Gwrite!<CR>
+nnoremap <silent> <leader>gq :Gwq<CR>
+nnoremap <silent> <leader>gQ :Gwq!<CR>
 
 " Status line
 Plug 'itchyny/lightline.vim'
@@ -313,7 +312,7 @@ nnoremap <Leader>jn :rightbelow new<CR>
 
 
 " If split in given direction exists - jump, else create new split
-function! JumpOrOpenNewSplit(key, cmd, fzf) " {{{
+function! JumpOrOpenNewSplit(key, cmd, fzf) "
   let current_window = winnr()
   execute 'wincmd' a:key
   if current_window == winnr()
@@ -326,7 +325,8 @@ function! JumpOrOpenNewSplit(key, cmd, fzf) " {{{
       Files
     endif
   endif
-endfunction " }}}
+endfunction
+
 nnoremap <silent> <Leader>hh :call JumpOrOpenNewSplit('h', ':leftabove vsplit', 0)<CR>
 nnoremap <silent> <Leader>ll :call JumpOrOpenNewSplit('l', ':rightbelow vsplit', 0)<CR>
 nnoremap <silent> <Leader>kk :call JumpOrOpenNewSplit('k', ':leftabove split', 0)<CR>
