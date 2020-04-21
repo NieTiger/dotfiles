@@ -72,25 +72,6 @@ set smartcase       " Include only uppercase words with uppercase search term
 hi Pmenu guibg=Black
 
 " ============================================================================ "
-" ===                               ALE config                             === "
-" ============================================================================ "
-let g:ale_fix_on_save = 1
-"let g:ale_completion_enabled = 1
-"let g:ale_linters_explicit = 1
-"let g:ale_linters = {
-"\   'python': ['black']
-"\}
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier', 'eslint'],
-\   'css': ['prettier'],
-\   'python': ['black']
-\}
-
-"" disabling highlighting
-"let g:ale_set_highlights = 0
-
-" ============================================================================ "
 " ===                               VimPlug                                === "
 " ============================================================================ "
 call plug#begin('~/.vim/plugged')
@@ -132,7 +113,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim',
 
 " Syntax highlighting
-Plug 'dense-analysis/ale'
 Plug 'leafgarland/typescript-vim',
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'peitalin/vim-jsx-typescript'
