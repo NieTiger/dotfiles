@@ -29,7 +29,7 @@ gitupdate() {
 main() {
     echo "Starting backup ..."
     rsync -q -av ~/.config/i3* ~/.config/polybar ~/.config/plasma* ~/.config/rofi config/
-    rsync -q -av ~/.vimrc ~/.tmux.conf.local ~/.zshrc dotfiles
+    rsync -q -av ~/.vimrc ~/.tmux.conf.local ~/.zshrc ~/.doom.d/ dotfiles/
 
     gitupdate
     echo "Backup complete."

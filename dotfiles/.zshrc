@@ -81,6 +81,7 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='nvim'
 alias vim='nvim'
+alias e='emacsclient -nw'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
