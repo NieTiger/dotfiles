@@ -54,8 +54,5 @@
 
 ;;(setq confirm-kill-emacs nil)
 
-(setq doom-modeline-python-executable "python3")
-(setq python-shell-interpreter "python3"
-      flycheck-python-pycompile-executable "python3")
-
-(setq doom-modeline-env-python-executable "python3")
+(after! python
+  (setq python-shell-interpreter "python3"))
