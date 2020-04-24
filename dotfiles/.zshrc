@@ -124,7 +124,7 @@ unsetopt autocd
 
 alias activate_pio="source ~/.platformio/penv/bin/activate"
 
-alias python3=python3.8
+#alias python3=python3.8
 
 ## Booting into TTY
 #if [ "$TERM" = "linux" ]; then
