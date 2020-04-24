@@ -115,8 +115,6 @@ export PATH=$PATH:$GOPATH/bin
 # added by travis gem
 [ -f /home/tiger/.travis/travis.sh ] && source /home/tiger/.travis/travis.sh
 
-eval $(thefuck --alias)
-
 autoload -Uz tetriscurses
 
 # No autocd
