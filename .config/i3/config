@@ -34,6 +34,8 @@ bindsym $mod+Delete exec "sh ~/.config/i3/lock.sh"
 # Toggle notification center
 bindsym $mod+i exec kill -s USR1 $(pidof deadd-notification-center) 
 
+# Take screenshot
+bindsym Print exec ~/.config/i3/screenshot.sh
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

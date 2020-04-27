@@ -3,9 +3,12 @@ background = "#601d1f21"
 background-alt = #4d3902
 foreground = #ebdbb1
 foreground-alt = #d79921
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+;primary = #ffb52a
+;secondary = #e60053
+;alert = #bd2c40
+primary = #fe8019
+secondary = #b16286
+alert = #fb4934
 
 green = #32CD32
 yellow = #f3ff0d
@@ -24,7 +27,7 @@ height = 2.5%
 
 modules-left = i3 cpu temperature
 modules-center = date
-modules-right = network backlight volume memory battery
+modules-right = network backlight volume memory battery powermenu
 
 font-0 = Iosevka:style=regular:size=12
 font-1 = Font Awesome:style=Regular:size=13
@@ -132,13 +135,12 @@ label-song-ellipsis = true
 
 [module/backlight]
 type = internal/backlight
-
 ; Use the following command to list available cards:
 ; $ ls -1 /sys/class/backlight/
 card = intel_backlight
 
 ;format = LIGHT <label>
-format =  <label>
+format = LIGHT <label>
 
 ; Enable changing the backlight with the scroll wheel (unreleased)
 ; NOTE: This may require additional configuration on some systems. Polybar will
@@ -166,7 +168,7 @@ format-prefix = ""
 label = %percentage:2%%
 format-padding = 1
 
-;format-underline = #be0af5
+format-underline = ${colors.foreground-alt}
 ;label = CPU %percentage:2%%
 
 [module/memory]
@@ -175,6 +177,7 @@ interval = 2
 
 format = <label>
 label = "  %gb_used% / %gb_total%"
+format-underline = ${colors.foreground-alt}
 
 [module/network]
 type = internal/network
@@ -291,25 +294,23 @@ adapter = AC
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${colors.primary}
 format-discharging = <ramp-capacity> <label-discharging>
-
+format-discharging-underline = ${self.format-charging-underline}
 format-full = " <label-full>"
-
+format-full-underline = ${self.format-charging-underline}
 label-charging = %percentage%%
 label-discharging = %percentage%%
 label-full = %percentage%%
-
 animation-charging-0 = ""
 animation-charging-1 = ""
 animation-charging-2 = ""
 animation-charging-3 = ""
 animation-charging-4 = ""
 animation-charging-framerate = 750
-
 ramp-capacity-0 = ""
 ramp-capacity-1 = ""
 ramp-capacity-2 = ""
-ramp-capacity-3 = ""
 
 [module/temperature]
 type = internal/temperature
@@ -319,6 +320,8 @@ warn-temperature = 60
 format = <ramp> <label>
 format-warn = <ramp> <label-warn>
 format-padding = 1
+
+format-underline = ${colors.foreground-alt}
 
 label = %temperature-c%
 label-warn = %temperature-c%
