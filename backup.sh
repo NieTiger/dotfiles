@@ -28,7 +28,7 @@ gitupdate() {
 
 main() {
     echo "Starting backup ..."
-    rsync -q -av ~/.config/nvim ~/.config/i3* ~/.config/polybar ~/.config/rofi config/ ~/.config/compton
+    rsync -q -av ~/.config/kitty ~/.config/nvim ~/.config/i3* ~/.config/polybar ~/.config/rofi config/ ~/.config/compton
     rsync -q -av ~/.Xdefaults ~/.vimrc ~/.tmux.conf.local ~/.zshrc ~/.doom.d dotfiles/
 
     gitupdate
