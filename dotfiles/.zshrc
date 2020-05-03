@@ -117,10 +117,15 @@ export PATH=$PATH:$GOPATH/bin
 
 autoload -Uz tetriscurses
 
-# No autocd
+# No autocd for directories
 unsetopt autocd
 
+# alias to activate platformio tools
 alias activate_pio="source ~/.platformio/penv/bin/activate"
+
+
+# Autocomplete java classes in the current directory
+export CLASSPATH=.:$CLASSPATH
 
 
 ## Booting into TTY
