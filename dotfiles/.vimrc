@@ -404,4 +404,4 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " ============================================================================ "
 " ===                                 MISC.                                === "
 " ============================================================================ "
-:hi ErrorMsg ctermfg=15 ctermbg=1 guifg=black guibg=Red
+":hi ErrorMsg ctermfg=15 ctermbg=1 guifg=black guibg=Red
