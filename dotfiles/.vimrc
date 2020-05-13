@@ -7,8 +7,7 @@ syntax enable
 filetype plugin indent on
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
-set shiftwidth=4    " number of spaces to use for autoindent
-set smartindent
+set shiftwidth=4    " number of spaces to use for autoindent set smartindent
 set expandtab       " tabs are space
 set autoindent
 set copyindent      " copy indent from the previous line
@@ -81,7 +80,9 @@ else
 endif
 
 " Gruvbox colorscheme
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
+" Theme
+Plug 'chuling/vim-equinusocio-material'
 
 " Grammar
 Plug 'rhysd/vim-grammarous'
@@ -137,7 +138,7 @@ set showmatch       " highlight matching brace
 set laststatus=2    " Always have status line
 set noshowmode      " Lightline already show mode
 set showcmd
-"set termguicolors
+set termguicolors
 set cmdheight=1     " One line for command line
 set shortmess+=c    " don't give completion messages
 set splitbelow      " Set preview window to appear at bottom
@@ -153,8 +154,16 @@ set smartcase       " Include only uppercase words with uppercase search term
 " Set floating window background
 hi Pmenu guibg=Black
 
-colorscheme gruvbox
-set bg=dark
+
+"""" Theme settings
+" if you prefer the default one, comment out this line
+let g:equinusocio_material_darker = 1
+
+" make vertsplit invisible
+let g:equinusocio_material_hide_vertsplit = 1
+
+colorscheme equinusocio_material
+
 hi Normal ctermbg=None
 
 
