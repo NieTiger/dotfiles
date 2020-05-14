@@ -143,7 +143,9 @@ set cmdheight=1     " One line for command line
 set shortmess+=c    " don't give completion messages
 set splitbelow      " Set preview window to appear at bottom
 
-set winbl=10        " Set floating window to be slightly transparent
+if has('nvim')
+  set winbl=10        " Set floating window to be slightly transparent
+endif
 
 " Search
 set hlsearch        " Highlight matching search patterns
