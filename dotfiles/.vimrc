@@ -340,6 +340,7 @@ nnoremap <Leader>j<Enter> :rightbelow new<CR>:terminal<CR>
 
 " === fzf === "
 nnoremap <c-p> :FZF<CR>
+autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
 
 " Switch between tabs
 nmap <leader>1 1gt
