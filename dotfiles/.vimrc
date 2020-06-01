@@ -90,6 +90,9 @@ Plug 'lervag/vimtex'
 " Tmux integration
 Plug 'christoomey/vim-tmux-navigator'
 
+" Distraction free writing
+Plug 'junegunn/goyo.vim'
+
 call plug#end()
 
 " LaTeX
