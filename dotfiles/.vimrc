@@ -72,8 +72,9 @@ Plug 'junegunn/fzf.vim',
 
 " Syntax highlighting
 Plug 'leafgarland/typescript-vim',
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Theme
 Plug 'chuling/vim-equinusocio-material'
