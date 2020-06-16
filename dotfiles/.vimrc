@@ -26,6 +26,12 @@ set autoread        " Auto reread file if a change was detected
 set scrolloff=100   " cursor always at the center of the screen
 let g:mapleader = "\<Space>" "remap leader
 
+" Search
+set hlsearch        " Highlight matching search patterns
+set incsearch       " Enable incremental search
+set ignorecase      " Ignore case when searching
+set smartcase       " Include only uppercase words with uppercase search term
+
 " ============================================================================ "
 " ===                               VimPlug                                === "
 " ============================================================================ "
@@ -61,7 +67,7 @@ nnoremap <silent> <leader>gq :Gwq<CR>
 nnoremap <silent> <leader>gQ :Gwq!<CR>
 
 " Status line
-"Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 
 " Autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -137,34 +143,18 @@ set laststatus=2    " Always have status line
 set noshowmode      " Lightline already show mode
 set showcmd
 set termguicolors
-"set notermguicolors
 set cmdheight=1     " One line for command line
 set shortmess+=c    " don't give completion messages
 set splitbelow      " Set preview window to appear at bottom
+
+colorscheme halcyon
 
 if has('nvim')
   set winbl=10        " Set floating window to be slightly transparent
 endif
 
-" Search
-set hlsearch        " Highlight matching search patterns
-set incsearch       " Enable incremental search
-set ignorecase      " Ignore case when searching
-set smartcase       " Include only uppercase words with uppercase search term
-
 " Set floating window background
 hi Pmenu guibg=Black
-
-
-"""" Theme settings
-" if you prefer the default one, comment out this line
-"let g:equinusocio_material_darker = 1
-
-" make vertsplit invisible
-let g:equinusocio_material_hide_vertsplit = 1
-
-"colorscheme equinusocio_material
-
 hi Normal ctermbg=None
 
 " === Nerdtree toggle === "
@@ -213,10 +203,10 @@ nnoremap <Leader>j<Enter> :rightbelow new<CR>:terminal<CR>
 
 " === fzf === "
 nnoremap <c-p> :FZF<CR>
-nnoremap ; :Buffers<CR>
-nnoremap <Leader>w :Windows<CR>
-nnoremap <Leader>/ :BLines<CR>
-nnoremap <Leader>? :Lines<CR>
+"nnoremap ; :Buffers<CR>
+nnoremap <Leader>w :Windows<CR>                 " Search open windows
+nnoremap <Leader>/ :BLines<CR>                  " Search in open buffers
+nnoremap <Leader>? :Lines<CR>                   " Search in current directory
 autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
 
 
@@ -295,3 +285,21 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " ===                                 MISC.                                === "
 " ============================================================================ "
 ":hi ErrorMsg ctermfg=15 ctermbg=1 guifg=black guibg=Red
+
+function! ToggleSyntax()
+   if exists("g:syntax_on")
+      syntax off
+   else
+      syntax enable
+   endif
+endfunction
+ 
+nmap <silent>  ;s  :call ToggleSyntax()<CR>
+
+" Get syntax highlight group
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+" Reload vimrc
+map <F9> :so ~/.vimrc <CR>
