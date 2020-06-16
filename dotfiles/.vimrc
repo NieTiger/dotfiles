@@ -61,7 +61,7 @@ nnoremap <silent> <leader>gq :Gwq<CR>
 nnoremap <silent> <leader>gQ :Gwq!<CR>
 
 " Status line
-Plug 'itchyny/lightline.vim'
+"Plug 'itchyny/lightline.vim'
 
 " Autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -163,7 +163,7 @@ hi Pmenu guibg=Black
 " make vertsplit invisible
 let g:equinusocio_material_hide_vertsplit = 1
 
-colorscheme equinusocio_material
+"colorscheme equinusocio_material
 
 hi Normal ctermbg=None
 
