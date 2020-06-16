@@ -85,8 +85,20 @@ Plug 'rhysd/vim-grammarous'
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
-" Tex
+" LaTeX
 Plug 'lervag/vimtex'
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+let g:vimtex_latexmk_progname= '/usr/bin/nvr'
+
+" Snippets
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger = '<Tab>'
+let g:UltiSnipsJumpForwardTrigger = '<Tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-Tab>'
 
 " Tmux integration
 Plug 'christoomey/vim-tmux-navigator'
@@ -96,35 +108,23 @@ Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
-" LaTeX
-"let g:vimtex_latexmk_progname = 'nvr'
-"let g:vimtex_view_method = 'zathura'
-"let g:vimtex_fold_manual=1
-"let g:vimtex_quickfix_ignore_all_warnings = 0
-"let g:vimtex_quickfix_open_on_warning = 0
-"let g:vimtex_fold_enabled = 1
-"
-"let g:formatdef_latexindent = '"latexindent"'
-"let g:formatters_tex = ['latexindent']
-"
-"let g:tex_flavor='latex'
-"let g:tex_indent_brace=1
-"let g:tex_indent_items=1
-"let g:tex_items='\\bibitem\|\\item'
-"let g:tex_itemize_env='itemize\|description\|enumerate\|thebibliography'
-"let g:tex_noindent_env='document\|verbatim\|comment\|lstlisting'
-"let g:tex_indent_ifelsefi = 1
-"let g:tex_indent_and=1
-"let g:tex_conceal="abdgm"
-
 " Markdown
+let g:mkdp_auto_start = 0
+let g:mkdp_auto_close = 1
+let g:mkdp_refresh_slow = 0
+let g:mkdp_browser = 'firefox'
+
 let g:mkdp_page_title = '${name}'
 let g:mkdx#settings = { 'highlight': { 'enable': 1 },
                         \ 'enter': { 'shift': 1 },
                         \ 'links': { 'external': { 'enable': 1 } },
                         \ 'toc': { 'text': 'Table of Contents', 'update_on_write': 1 },
                         \ 'fold': { 'enable': 1 } }
-"autocmd FileType org,markdown :TableModeToggle
+
+nmap <silent> <F7> <Plug>MarkdownPreview
+imap <silent> <F7> <Plug>MarkdownPreview
+nmap <silent> <F8> <Plug>StopMarkdownPreview
+imap <silent> <F8> <Plug>StopMarkdownPreview
 
 " ============================================================================ "
 " ===                                UI                                    === "
@@ -259,8 +259,8 @@ endfunction
 
 
 " Use <TAB> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
+"nmap <silent> <TAB> <Plug>(coc-range-select)
+"xmap <silent> <TAB> <Plug>(coc-range-select)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
