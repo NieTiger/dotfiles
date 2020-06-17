@@ -24,6 +24,9 @@ set signcolumn=auto
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_nz
 set autoread        " Auto reread file if a change was detected
 set scrolloff=100   " cursor always at the center of the screen
+
+set foldmethod=marker
+
 let g:mapleader = "\<Space>" "remap leader
 
 " Search
@@ -77,13 +80,14 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim',
 
 " Syntax highlighting
-Plug 'leafgarland/typescript-vim',
+Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Theme
 Plug 'chuling/vim-equinusocio-material'
+Plug 'tiega/halcyon.vim'
 
 " Grammar
 Plug 'rhysd/vim-grammarous'
@@ -303,3 +307,7 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 
 " Reload vimrc
 map <F9> :so ~/.vimrc <CR>
+
+let g:lightline = {
+      \ 'colorscheme': 'halcyon',
+      \ }

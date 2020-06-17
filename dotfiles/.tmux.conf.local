@@ -290,7 +290,7 @@ unbind C-a
 #bind-key Home send-prefix
 
 # move status line to top
-#set -g status-position top
+set -g status-position top
 
 
 # Smart pane switching with awareness of Vim splits.
