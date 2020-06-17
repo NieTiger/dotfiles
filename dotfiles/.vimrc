@@ -86,7 +86,6 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Theme
-Plug 'chuling/vim-equinusocio-material'
 Plug 'tiega/halcyon.vim'
 
 " Grammar
@@ -152,6 +151,9 @@ set shortmess+=c    " don't give completion messages
 set splitbelow      " Set preview window to appear at bottom
 
 colorscheme halcyon
+let g:lightline = {
+      \ 'colorscheme': 'halcyon',
+      \ }
 
 if has('nvim')
   set winbl=10        " Set floating window to be slightly transparent
@@ -308,6 +310,3 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 " Reload vimrc
 map <F9> :so ~/.vimrc <CR>
 
-let g:lightline = {
-      \ 'colorscheme': 'halcyon',
-      \ }

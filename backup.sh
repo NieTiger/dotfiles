@@ -22,7 +22,7 @@ gitupdate() {
         commit_msg=$1
     fi
 
-    changed=$(git diff --name-only head)
+    changed=$(git diff --name-only HEAD)
     if [[ $changed ]]; then
         echo changed files: $changed
         echo uploading to github
