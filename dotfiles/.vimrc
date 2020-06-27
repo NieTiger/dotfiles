@@ -24,6 +24,7 @@ set signcolumn=auto
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_nz
 set autoread        " Auto reread file if a change was detected
 set scrolloff=100   " cursor always at the center of the screen
+set nrformats+=alpha 
 
 set foldmethod=marker
 
@@ -310,3 +311,5 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 " Reload vimrc
 map <F9> :so ~/.vimrc <CR>
 
+" Python documentation
+nnoremap <F2> :<C-u>execute "!pydoc3 " . expand("<cword>")<CR>
