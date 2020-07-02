@@ -83,11 +83,13 @@ Plug 'junegunn/fzf.vim',
 " Syntax highlighting
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'vim-python/python-syntax'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Theme
 Plug 'tiega/halcyon.vim'
+Plug 'hardcoreplayers/oceanic-material'
 
 " Grammar
 Plug 'rhysd/vim-grammarous'

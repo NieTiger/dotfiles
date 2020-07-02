@@ -37,7 +37,7 @@ gitupdate() {
 main() {
     echo "Starting backup ..."
     rsync -q -av ~/.config/zathura ~/.config/redshift ~/.config/deadd ~/.config/kitty ~/.config/nvim ~/.config/i3* ~/.config/polybar ~/.config/rofi ~/.config/compton .config
-    rsync -q -av ~/.Xdefaults ~/.vimrc ~/.tmux.conf.local ~/.zshrc ~/.gitconfig dotfiles/
+    rsync -q -av ~/.Xdefaults ~/.vimrc ~/.tmux.conf.local ~/.zshrc ~/.gitconfig ~/.xinitrc dotfiles/
 
     gitupdate $1
     echo "Backup complete."

@@ -126,6 +126,9 @@ alias activate_pio="source ~/.platformio/penv/bin/activate"
 # Autocomplete java classes in the current directory
 export CLASSPATH=.:$CLASSPATH
 
+# JDK
+export PATH=$PATH:~/.jdks/openjdk-14.0.1/bin 
+
 # Clangd
 export PATH=$PATH:/usr/lib/llvm-10/bin
 
