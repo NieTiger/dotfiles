@@ -56,9 +56,8 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
-## start rofi
-#bindsym $mod+d exec "sh ~/.config/rofi/launchers/executable_launcher.sh"
+set $menu j4-dmenu-desktop --term="kitty" --no-generic | xargs swaymsg exec --
+
 
 ### Output configuration
 #
