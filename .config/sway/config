@@ -62,7 +62,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 5 'swaylock -f -c 20252b' \
+         timeout 300 'swaylock -f -c 20252b' \
          timeout 330 'swaymsg "output * dpms off"' \
          resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 20252b'
