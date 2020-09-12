@@ -1,6 +1,10 @@
 ### Samsung LU28R55
 output DP-1 res 2560x1440
 
+### wob overlay bar
+exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
+
+
 ### Appearance
 # Colours
 # class                 border  backgr. text    indicator child_border
@@ -17,12 +21,6 @@ gaps top 0
 gaps right 0
 gaps bottom 0
 gaps left 0
-
-### Touchpad
-input "type:touchpad" {
-    tap enabled
-    natural_scroll enabled
-}
 
 
 # Default config for sway
@@ -64,9 +62,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
+         timeout 5 'swaylock -f -c 20252b' \
+         timeout 330 'swaymsg "output * dpms off"' \
+         resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 20252b'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -86,6 +85,12 @@ exec swayidle -w \
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
+### Touchpad
+input "type:touchpad" {
+    tap enabled
+    natural_scroll enabled
+}
+
 ### Key bindings
 #
 # Remap capslock to escape
@@ -95,16 +100,15 @@ input "type:keyboard" {
 }
 
 # set brightness logarithmically by factor 1.4
-# .72 is just slightly bigger than 1 / 1.4
-#bindsym --locked XF86MonBrightnessUp exec light -S "$(light -G | awk '{ print int(($1 + .72) * 1.4) }')"
-#bindsym --locked XF86MonBrightnessDown exec light -S "$(light -G | awk '{ print int($1 / 1.4) }')"
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
 #
 # Volume keys
 #
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +4000
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -4000
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
+bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
+bindsym XF86AudioMute exec amixer sset Master toggle
 
 #
 # Screenshot
@@ -262,7 +266,8 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+    #status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+    status_command while ~/.config/sway/status.sh; do sleep 1; done
 
     colors {
         statusline #ffffff
