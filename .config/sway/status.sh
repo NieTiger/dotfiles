@@ -14,6 +14,8 @@ battery_status=$(
         print "🔌"
     } else if ($0 == "Discharging") {
         print "⚡"
+    } else if ($0 == "Full") {
+        print "🔌"
     } else {
         print "Unknown"
     }
