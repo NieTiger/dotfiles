@@ -11,27 +11,27 @@ date_formatted=$(date "+%a %F %H:%M:%S")
 battery_status=$(
     awk '{
     if ($0 == "Charging") {
-        print "🔌"
+        print ""
     } else if ($0 == "Discharging") {
-        print "⚡"
+        print ""
     } else if ($0 == "Full") {
-        print "🔌"
+        print ""
     } else {
-        print "Unknown"
+        print ""
     }
     }' /sys/class/power_supply/BAT0/status
 )
 battery_level=$(cat /sys/class/power_supply/BAT0/capacity)%
 
 # Brightness status
-brightness="$(brightnessctl -m | sed 's/,/ /g' | awk '{print $4}') 💡"
+brightness="$(brightnessctl -m | sed 's/,/ /g' | awk '{print $4}') "
 
 # Volume status
 volume=$(amixer -M get Master | \
     awk '/Front Left: Playback/ \
-        {print $6=="[off]" ? $5" 🔇" : $5" 🔈"}' | \
+        {print $6=="[off]" ? $5" 婢" : $5" 墳"}' | \
     tr -d "[]") 
 
 # Emojis and characters for the status bar
 # ↑💎 💻 💡 🔌 ⚡ 📁 \|
-echo $volume $brightness $battery_level $battery_status $date_formatted
+echo $volume " " $brightness " " $battery_level $battery_status " " $date_formatted

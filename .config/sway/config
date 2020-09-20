@@ -1,9 +1,14 @@
 ### Samsung LU28R55
-output DP-1 res 2560x1440
+output DP-1 {
+    res 2560x1440
+}
 
-### wob overlay bar
-exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
+output eDP-1 {
+    res 1920x1080
+}
 
+## Font
+font pango:JetBrainsMono Nerd Font 12
 
 ### Appearance
 # Colours
@@ -16,11 +21,7 @@ exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 #client.background       #282828
 
 # gaps
-gaps inner 6
-gaps top 0
-gaps right 0
-gaps bottom 0
-gaps left 0
+smart_gaps off
 
 
 # Default config for sway
@@ -276,7 +277,7 @@ bar {
 
     colors {
         statusline #ffffff
-        background #323232
+        background #00000088
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
