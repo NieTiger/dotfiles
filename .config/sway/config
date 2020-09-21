@@ -1,11 +1,4 @@
-### Samsung LU28R55
-output DP-1 {
-    res 2560x1440
-}
-
-output eDP-1 {
-    res 1920x1080
-}
+# Read `man 5 sway` for a complete reference.
 
 ## Font
 font pango:JetBrainsMono Nerd Font 12
@@ -13,22 +6,25 @@ font pango:JetBrainsMono Nerd Font 12
 ### Appearance
 # Colours
 # class                 border  backgr. text    indicator child_border
-#client.focused          #4a71c7 #282828 #ebdbb2 #458588   #4a71c7
-#client.focused_inactive #d79921 #282828 #ebdbb2 #d79921   #d79921
-#client.unfocused        #32302f #282828 #ebdbb2 #32302f   #32302f
-#client.urgent           #cc241d #282828 #ebdbb2 #cc241d   #cc241d
-#client.placeholder      #282828 #282828 #ebdbb2 #282828   #282828
-#client.background       #282828
+client.focused          #918992 #404040 #ffffff #000000   #918992
+client.focused_inactive #000000 #404040 #b4b4b4 #000000   #000000
+client.unfocused        #000000 #404040 #b4b4b4 #000000   #000000
+client.urgent           #000000 #404040 #b4b4b4 #000000   #000000
+client.placeholder      #000000 #404040 #b4b4b4 #000000   #000000
+client.background       #000000
 
 # gaps
-smart_gaps off
+smart_gaps on
 
+# Set border pixel to 1 removes titlebar
+default_border pixel 1
 
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
+# Move mouse to centre of focused container
+mouse_warping container
+
+# Set opacity
+for_window [class="Code"] opacity 0.8
+
 
 ### Variables
 #
@@ -46,17 +42,29 @@ set $term kitty
 # on the original workspace that the command was run on.
 set $menu j4-dmenu-desktop --term="kitty" --no-generic | xargs swaymsg exec --
 
-
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+
+### Samsung LU28R55
+output DP-1 {
+    res 2560x1440
+}
+
+output eDP-1 {
+    #bg ~/dotfiles/background.jpg fill
+    bg ~/Downloads/Mojave.jpg fill
+    res 1920x1080
+}
+
 
 ### Idle configuration
 #
@@ -67,10 +75,16 @@ exec swayidle -w \
          timeout 330 'swaymsg "output * dpms off"' \
          resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 20252b'
-#
+
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
+
+### Disable idle when firefox is fullscreen
+# xwayland version
+for_window [class="Firefox"] inhibit_idle fullscreen
+# wayland vesion
+for_window [app_id="firefox"] inhibit_idle fullscreen
 
 ### Input configuration
 #
@@ -97,7 +111,7 @@ input "type:touchpad" {
 # Remap capslock to escape
 #
 input "type:keyboard" {
-    xkb_options caps:escape
+    xkb_options ctrl:nocaps
 }
 
 # set brightness logarithmically by factor 1.4
@@ -116,7 +130,6 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-#
 # Screenshot
 #
 # Full screen
@@ -126,7 +139,6 @@ bindsym Print+Shift exec ~/.config/sway/grimshot save area
 # Window selection
 bindsym $mod+Print exec ~/.config/sway/grimshot save window
 
-#
 # Basics:
 #
     # Start a terminal
@@ -147,10 +159,11 @@ bindsym $mod+Print exec ~/.config/sway/grimshot save window
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-#
+
 # Moving around:
 #
     # Move your focus around
@@ -201,7 +214,7 @@ bindsym $mod+Print exec ~/.config/sway/grimshot save window
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
-#
+
 # Layout stuff:
 #
     # You can "split" the current object of your focus with
@@ -226,7 +239,7 @@ bindsym $mod+Print exec ~/.config/sway/grimshot save window
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
-#
+
 # Scratchpad:
 #
     # Sway has a "scratchpad", which is a bag of holding for windows.
@@ -238,7 +251,7 @@ bindsym $mod+Print exec ~/.config/sway/grimshot save window
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
-#
+
 # Resizing containers:
 #
 mode "resize" {
@@ -263,22 +276,23 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
-
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    #status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
     status_command while ~/.config/sway/status.sh; do sleep 1; done
+    mode dock
+    position bottom
 
     colors {
+        background #27262799
         statusline #ffffff
-        background #00000088
-        inactive_workspace #32323200 #32323200 #5c5c5c
+
+        # class             border    backgr.   text
+        focused_workspace   #404040   #404040   #ffffff
+        inactive_workspace  #272627ff #272627ff #ffffff
     }
 }
 
