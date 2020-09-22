@@ -61,7 +61,7 @@ output DP-1 {
 
 output eDP-1 {
     #bg ~/dotfiles/background.jpg fill
-    bg ~/Downloads/Mojave.jpg fill
+    bg ~/dotfiles/fantasy_sunset.jpg fill
     res 1920x1080
 }
 
@@ -287,12 +287,12 @@ bar {
     position bottom
 
     colors {
-        background #27262799
+        background #27262788
         statusline #ffffff
 
         # class             border    backgr.   text
-        focused_workspace   #404040   #404040   #ffffff
-        inactive_workspace  #272627ff #272627ff #ffffff
+        focused_workspace   #404040   #40404099 #ffffff
+        inactive_workspace  #272627ff #27262788 #ffffff
     }
 }
 
