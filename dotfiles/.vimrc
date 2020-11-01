@@ -8,9 +8,7 @@ filetype plugin indent on
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
 set shiftwidth=4    " number of spaces to use for autoindent set smartindent
-autocmd BufRead,BufNewFile *.html set shiftwidth=2  " 2 spaces for HTML
-autocmd BufRead,BufNewFile *.js set shiftwidth=2  " 2 spaces for js
-autocmd BufRead,BufNewFile *.ts set shiftwidth=2  " 2 spaces for js
+autocmd BufRead,BufNewFile *.html,*.js,*css,*.ts,*.yaml,*.toml set shiftwidth=2  " 2 spaces for certain files
 set expandtab       " tabs are space
 set smartindent
 set autoindent
@@ -270,3 +268,4 @@ map <F9> :so ~/.vimrc <CR>
 
 " Python documentation
 nnoremap <F2> :<C-u>execute "!pydoc3 " . expand("<cword>")<CR>
+
