@@ -2,7 +2,9 @@
 
 This is my collection of config files for both Darwin and Linux.
 
-<img src="https://github.com/NieTiger/halcyon-assets/raw/master/macOS-neofetch.png" alt="img">
+| **Linux** | **Darwin** |
+| ---------- | --------- |
+| <img src="https://github.com/NieTiger/halcyon-assets/raw/master/halcyon-debian.png" alt="debian" align="right"> | <img src="https://github.com/NieTiger/halcyon-assets/raw/master/macOS-neofetch.png" alt="macos" align="right"> |
 
 | Software    | Linux                                                                                 | Darwin                                   |
 | ----------- | ------------------------------------------------------------------------------------- | ---------------------------------------- |
