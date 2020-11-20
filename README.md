@@ -40,5 +40,5 @@ cd && git clone https://github.com/NieTiger/dotfiles && cd dotfiles
 The Dockerfile completely reproduces the CLI environment. NeoVim will attempt to install all plugins the first time you open it. Give it a shot :)
 
 ```bash
-docker run -it tigernie/dotfiles
+docker run --rm -it tigernie/dotfiles
 ```
