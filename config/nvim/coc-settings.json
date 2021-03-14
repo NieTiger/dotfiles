@@ -2,12 +2,12 @@
     "coc.preferences.jumpCommand": "tab drop",
     "coc.preferences.formatOnSaveFiletypes": [
         "css",
-        "python",
         "markdown",
         "go"
     ],
     "python.formatting.provider": "black",
     "python.linting.mypyEnabled": true,
+    "python.pythonPath": "python3",
     "languageserver": {
         "go": {
             "command": "gopls",

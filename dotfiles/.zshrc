@@ -54,7 +54,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export EDITOR='nvim'
-alias vim='nvim'
+alias minivim='nvim -u ~/.config/nvim/mini.vim'
+alias vim='nvim -u ~/.config/nvim/mid.vim'
 export GIT_EDITOR=nvim
 
 alias :q='echo "Nerd..." && sleep 1 && exit'
@@ -88,9 +89,6 @@ autoload -Uz tetriscurses
 
 # No autocd for directories
 unsetopt autocd
-
-# Autocomplete java classes in the current directory
-export CLASSPATH=.:$CLASSPATH
 
 ## Booting into TTY
 # Gruvbox
@@ -126,9 +124,11 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
-export PATH=$PATH:/System/Volumes/Data/Library/Developer/CommandLineTools/usr/bin
+#export PATH=$PATH:/System/Volumes/Data/Library/Developer/CommandLineTools/usr/bin
 export PATH=$PATH:~/dotfiles/scripts
-export PATH="/usr/local/sbin:$PATH"
+#export PATH="/usr/local/sbin:$PATH"
 
 alias activate_pio='source ~/.platformio/penv/bin/activate'
 alias p1='ping 1.1.1.1'
+
+export PATH="$HOME/.poetry/bin:$PATH"
