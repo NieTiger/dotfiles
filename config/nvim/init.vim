@@ -45,7 +45,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'tpope/vim-repeat'
     Plug 'jiangmiao/auto-pairs'
     Plug 'pangloss/vim-javascript'
-		let g:javascript_plugin_jsdoc = 1
+    let g:javascript_plugin_jsdoc = 1
     Plug 'vim-python/python-syntax'
 		let g:python_highlight_func_calls = 1
 		let g:python_highlight_operators = 1
