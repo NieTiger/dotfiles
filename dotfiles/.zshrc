@@ -55,7 +55,7 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='nvim'
 alias minivim='nvim -u ~/.config/nvim/mini.vim'
-alias vim='nvim -u ~/.config/nvim/mid.vim'
+alias vim='nvim'
 export GIT_EDITOR=nvim
 
 alias :q='echo "Nerd..." && sleep 1 && exit'
