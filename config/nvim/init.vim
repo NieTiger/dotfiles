@@ -42,6 +42,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'preservim/nerdcommenter'
     Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
     Plug 'jiangmiao/auto-pairs'
     Plug 'pangloss/vim-javascript'
